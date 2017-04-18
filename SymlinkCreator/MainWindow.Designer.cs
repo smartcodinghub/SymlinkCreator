@@ -96,13 +96,18 @@
             // 
             // bTarget
             // 
+            this.bTarget.AltGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.bTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bTarget.Hover = false;
-            this.bTarget.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.bTarget.Image = null;
             this.bTarget.ImageLocation = new System.Drawing.Point(0, 0);
             this.bTarget.ImageSize = new System.Drawing.Size(0, 0);
             this.bTarget.Location = new System.Drawing.Point(648, 221);
             this.bTarget.Name = "bTarget";
+            this.bTarget.PercentageForHover = 0.15F;
+            this.bTarget.PercentageForPressed = 0.15F;
+            this.bTarget.PercentageOfDark = 0.4F;
+            this.bTarget.PercentageOfLight = 0.4F;
             this.bTarget.Pressed = false;
             this.bTarget.Radius = 8;
             this.bTarget.Size = new System.Drawing.Size(107, 42);
@@ -115,17 +120,23 @@
             this.bTarget.Text = "Target";
             this.bTarget.TextGap = 0;
             this.bTarget.TextLocation = new System.Drawing.Point(0, 0);
+            this.bTarget.UseGradient = true;
             this.bTarget.UseVisualStyleBackColor = false;
             // 
             // bSource
             // 
+            this.bSource.AltGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.bSource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bSource.Hover = false;
-            this.bSource.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.bSource.Image = null;
             this.bSource.ImageLocation = new System.Drawing.Point(0, 0);
             this.bSource.ImageSize = new System.Drawing.Size(0, 0);
             this.bSource.Location = new System.Drawing.Point(648, 139);
             this.bSource.Name = "bSource";
+            this.bSource.PercentageForHover = 0.15F;
+            this.bSource.PercentageForPressed = 0.15F;
+            this.bSource.PercentageOfDark = 0.4F;
+            this.bSource.PercentageOfLight = 0.4F;
             this.bSource.Pressed = false;
             this.bSource.Radius = 8;
             this.bSource.Size = new System.Drawing.Size(107, 42);
@@ -138,6 +149,7 @@
             this.bSource.Text = "Source";
             this.bSource.TextGap = 0;
             this.bSource.TextLocation = new System.Drawing.Point(0, 0);
+            this.bSource.UseGradient = true;
             this.bSource.UseVisualStyleBackColor = false;
             // 
             // MainWindow

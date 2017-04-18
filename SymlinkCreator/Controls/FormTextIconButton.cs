@@ -84,10 +84,12 @@ namespace Smartcodinghub.CustomControls
         {
             ForeColor = Color.White;
             Font = new Font("Segoe UIO", 9.75f);
-            BackColor = Color.FromArgb(50, 50, 50);
-            HoverColor = Color.FromArgb(80, 80, 80);
+            BackColor = Color.FromArgb(80, 80, 80);
+            AltGradientColor = Color.FromArgb(80, 80, 80);
             PercentageForHover = 0.15f;
             PercentageForPressed = 0.15f;
+            PercentageOfDark = 0.4f;
+            PercentageOfLight = 0.4f;
             StringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             TextLocation = new Point(Padding.Left, Padding.Top);
             ImageLocation = new Point(Padding.Left, Padding.Top);
@@ -147,11 +149,32 @@ namespace Smartcodinghub.CustomControls
         ///--------------------------------------------------------------------------------------------------
         private (Brush, Pen) GetBrushAndPen()
         {
+            Pen pen = null;
             Brush brush = null;
 
             if (UseGradient)
             {
+                /* Start and end color of the gradient */
+                Color StartColor = BackColor;
+                Color EndColor = AltGradientColor;
 
+                /* If pressed, we swap end and start, then we Dark/Light it because it represents the end of the linear and we want our color more near the center */
+                StartColor = (Pressed) ? ControlPaint.Dark(StartColor, PercentageOfDark) : StartColor;
+                EndColor = (Pressed) ? ControlPaint.Light(StartColor, PercentageOfLight) : ControlPaint.Dark(EndColor, PercentageOfDark);
+
+                /* If Hover, we Light it a bit. */
+                if (Hover)
+                {
+                    StartColor = ControlUtils.ChangeColorBrightness(StartColor, PercentageForHover);
+                    EndColor = ControlUtils.ChangeColorBrightness(EndColor, PercentageForHover);
+                }
+
+                brush = new LinearGradientBrush(
+                    new Point(this.Width / 2, (Pressed) ? -(this.Height / 2) : 0),
+                    new Point(this.Width / 2, this.Height + ((Pressed) ? 0 : this.Height / 2)),
+                    StartColor, EndColor);
+
+                pen = new Pen((Pressed) ? StartColor : EndColor);
             }
             else
             {
@@ -165,20 +188,15 @@ namespace Smartcodinghub.CustomControls
                     color = BackColor;
 
                 brush = new SolidBrush(color);
+                pen = new Pen(color);
             }
 
-            return (brush, new Pen(BackColor));
-
-            //Color StartColor = BackColor;
-            //Color EndColor = ForeColor;
-            //StartColor = (invertDark) ? ControlPaint.Dark(StartColor, PercentageOfDark) : StartColor;
-            //EndColor = (invertDark) ? ControlPaint.Light(StartColor, PercentageOfLight) : ControlPaint.Dark(EndColor, PercentageOfDark);
+            return (brush, pen);
 
 
-            //using (LinearGradientBrush brush = new LinearGradientBrush(
-            //    new Point(this.Width / 2, (invertDark) ? -(this.Height / 2) : 0),
-            //    new Point(this.Width / 2, this.Height + ((invertDark) ? 0 : this.Height / 2)),
-            //    StartColor, EndColor))
+
+
+            //using (LinearGradientBrush brush = )
             //    e.Graphics.FillRoundedRectangle(brush, 0, 0, this.Width - 1, this.Height, Radius, filter);
 
             //using (Pen pen = new Pen((invertDark) ? StartColor : EndColor))

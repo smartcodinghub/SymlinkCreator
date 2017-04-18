@@ -9,8 +9,7 @@ namespace Smartcodinghub.CustomControls
         public int Radius { get; set; }
         public bool Hover { get; set; }
         public bool Pressed { get; set; }
-
-        public Color HoverColor { get; set; }
+        
         public StringFormat StringFormat { get; set; }
 
         [DefaultValue(typeof(StringAlignment), "Center")]
@@ -37,7 +36,6 @@ namespace Smartcodinghub.CustomControls
             Hover = false;
             Radius = 4;
             Pressed = false;
-            HoverColor = Color.Gray;
             StringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             this.MouseEnter += (sender, e) => { Hover = true; Cursor = Cursors.Hand; };
             this.MouseLeave += (sender, e) => { Hover = false; Cursor = Cursors.Arrow; };

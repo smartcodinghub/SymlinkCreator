@@ -99,7 +99,7 @@ namespace Smartcodinghub.UserControls
             this.Extreme = Extreme.Left;
             this.TopColor = Color.FromArgb(80, 80, 80);
             this.BottomColor = Color.FromArgb(80, 80, 80);
-            this.PercentageOfDark = 0.01f;
+            this.PercentageOfDark = 0.4f;
             this.PercentageOfLight = 0.4f;
             this.Radius = 10;
         }
