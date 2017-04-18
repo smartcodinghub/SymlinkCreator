@@ -59,6 +59,14 @@ namespace Smartcodinghub.CustomControls
         public Boolean UseGradient { get; set; }
         public Color AltGradientColor { get; set; }
 
+        public float PercentageOfDark { get; set; }
+
+        public float PercentageOfLight { get; set; }
+
+        public float PercentageForHover { get; set; }
+
+        public float PercentageForPressed { get; set; }
+
         private Size imageSize;
         public Size ImageSize
         {
@@ -78,6 +86,8 @@ namespace Smartcodinghub.CustomControls
             Font = new Font("Segoe UIO", 9.75f);
             BackColor = Color.FromArgb(50, 50, 50);
             HoverColor = Color.FromArgb(80, 80, 80);
+            PercentageForHover = 0.15f;
+            PercentageForPressed = 0.15f;
             StringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             TextLocation = new Point(Padding.Left, Padding.Top);
             ImageLocation = new Point(Padding.Left, Padding.Top);
@@ -97,8 +107,13 @@ namespace Smartcodinghub.CustomControls
             rect.Height -= 1;
 
 
-            using (Brush brush = GetBrush())
-                e.Graphics.FillRoundedRectangle(brush, rect, Radius);
+            var (fillBrush, pen) = GetBrushAndPen();
+
+            using (fillBrush)
+                e.Graphics.FillRoundedRectangle(fillBrush, rect, Radius);
+
+            using (pen)
+                e.Graphics.DrawRoundedRectangle(pen, rect, Radius);
 
             if (Image != null)
             {
@@ -130,29 +145,32 @@ namespace Smartcodinghub.CustomControls
         /// <param name="EndColor">   The end color. </param>
         /// <param name="invertDark"> true to invert dark. </param>
         ///--------------------------------------------------------------------------------------------------
-        private Brush GetBrush()
+        private (Brush, Pen) GetBrushAndPen()
         {
             Brush brush = null;
 
-            Color StartColor = BackColor;
-            Color EndColor = ForeColor;
+            if (UseGradient)
+            {
 
-            if (Pressed)
-            {
-                Color DarkerColor = ControlUtils.ChangeColorBrightness(HoverColor, -0.15f);
-                brush = new SolidBrush(DarkerColor);
-            }
-            else if (Hover)
-            {
-                brush = new SolidBrush(HoverColor);
             }
             else
             {
-                brush = new SolidBrush(BackColor);
+                Color color = BackColor;
+
+                if (Pressed)
+                    color = ControlUtils.ChangeColorBrightness(color, -PercentageForPressed);
+                else if (Hover)
+                    color = ControlUtils.ChangeColorBrightness(color, PercentageForHover);
+                else
+                    color = BackColor;
+
+                brush = new SolidBrush(color);
             }
 
-            return brush;
+            return (brush, new Pen(BackColor));
 
+            //Color StartColor = BackColor;
+            //Color EndColor = ForeColor;
             //StartColor = (invertDark) ? ControlPaint.Dark(StartColor, PercentageOfDark) : StartColor;
             //EndColor = (invertDark) ? ControlPaint.Light(StartColor, PercentageOfLight) : ControlPaint.Dark(EndColor, PercentageOfDark);
 
