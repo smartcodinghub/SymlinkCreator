@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
-namespace Cartif.Extensions
+namespace Smartcodinghub.Extensions
 {
     ///------------------------------------------------------------------------------------------------------
     /// <summary> Some Extensions for Graphics class, to support rounded rectangles. </summary>

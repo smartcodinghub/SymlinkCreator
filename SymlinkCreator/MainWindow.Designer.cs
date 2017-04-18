@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.switchControl = new Cartif.UserControls.SwitchControl();
+            this.switchControl = new Smartcodinghub.UserControls.SwitchControl();
             this.tbSource = new System.Windows.Forms.TextBox();
             this.bSource = new System.Windows.Forms.Button();
             this.bTarget = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.switchControl.Name = "switchControl";
             this.switchControl.Size = new System.Drawing.Size(726, 70);
             this.switchControl.TabIndex = 1;
-            this.switchControl.OnSelectionChanged += new Cartif.UserControls.SwitchControl.SelectionChanged(this.switchControl_OnSelectionChanged);
+            this.switchControl.OnSelectionChanged += new Smartcodinghub.UserControls.SwitchControl.SelectionChanged(this.switchControl_OnSelectionChanged);
             // 
             // tbSource
             // 
@@ -135,7 +135,7 @@
         }
 
         #endregion
-        private Cartif.UserControls.SwitchControl switchControl;
+        private Smartcodinghub.UserControls.SwitchControl switchControl;
         private System.Windows.Forms.TextBox tbSource;
         private System.Windows.Forms.Button bSource;
         private System.Windows.Forms.Button bTarget;

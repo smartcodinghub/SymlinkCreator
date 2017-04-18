@@ -24,11 +24,6 @@ namespace SymlinkCreator
             this.SymlinkOption = symlinkOption;
         }
 
-        public Boolean IsValid()
-        {
-            return Directory.Exists(Source) && Directory.Exists(Target) && SymlinkOption != null;
-        }
-
         public String CreateSymlink()
         {
             return $"mklink {this.SymlinkOption.Option} {this.Source} {this.Target}";

@@ -7,9 +7,9 @@ using System.Text;
 
 using System.Windows.Forms;
 using System.ComponentModel;
-using Cartif.Extensions;
+using Smartcodinghub.Extensions;
 
-namespace Cartif.UserControls
+namespace Smartcodinghub.UserControls
 {
     ///------------------------------------------------------------------------------------------------------
     /// <summary> A switch button. </summary>

@@ -1,4 +1,4 @@
-﻿namespace Cartif.UserControls
+﻿namespace Smartcodinghub.UserControls
 {
     partial class SwitchControl
     {

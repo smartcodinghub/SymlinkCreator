@@ -36,8 +36,7 @@ namespace SymlinkCreator
             symlink.Source = tbSource.Text;
             symlink.Target = tbTarget.Text;
 
-            if (symlink.IsValid())
-                tbCommand.Text = symlink.CreateSymlink();
+            tbCommand.Text = symlink.CreateSymlink();
         }
     }
 }

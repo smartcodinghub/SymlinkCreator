@@ -47,7 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GraphicsExtensions.cs" />
+    <Compile Include="Controls\AbstractButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FormTextIconButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\CartifTableColor.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Extensions\ControlUtils.cs" />
+    <Compile Include="Extensions\GraphicsExtensions.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,17 +72,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SwitchButton.cs">
+    <Compile Include="Controls\SwitchButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SwitchControl.cs">
+    <Compile Include="Controls\SwitchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SwitchControl.designer.cs">
+    <Compile Include="Controls\SwitchControl.designer.cs">
       <DependentUpon>SwitchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Symlink.cs" />
     <Compile Include="SymlinkOption.cs" />
+    <Compile Include="Controls\Toast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Toast.designer.cs">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToastStack.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,8 +106,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SwitchControl.resx">
+    <EmbeddedResource Include="Controls\SwitchControl.resx">
       <DependentUpon>SwitchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Toast.resx">
+      <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
@@ -105,6 +125,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
