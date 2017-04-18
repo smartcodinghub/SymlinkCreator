@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Drawing.StringFormat stringFormat1 = new System.Drawing.StringFormat();
+            System.Drawing.StringFormat stringFormat2 = new System.Drawing.StringFormat();
             this.switchControl = new Smartcodinghub.UserControls.SwitchControl();
             this.tbSource = new System.Windows.Forms.TextBox();
-            this.bSource = new System.Windows.Forms.Button();
-            this.bTarget = new System.Windows.Forms.Button();
             this.tbTarget = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tbCommand = new System.Windows.Forms.TextBox();
+            this.bTarget = new Smartcodinghub.CustomControls.FormTextIconButton();
+            this.bSource = new Smartcodinghub.CustomControls.FormTextIconButton();
             this.SuspendLayout();
             // 
             // switchControl
@@ -62,28 +64,6 @@
             this.tbSource.Name = "tbSource";
             this.tbSource.Size = new System.Drawing.Size(579, 42);
             this.tbSource.TabIndex = 2;
-            // 
-            // bSource
-            // 
-            this.bSource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSource.Location = new System.Drawing.Point(648, 139);
-            this.bSource.Margin = new System.Windows.Forms.Padding(20);
-            this.bSource.Name = "bSource";
-            this.bSource.Size = new System.Drawing.Size(107, 42);
-            this.bSource.TabIndex = 3;
-            this.bSource.Text = "Source";
-            this.bSource.UseVisualStyleBackColor = true;
-            // 
-            // bTarget
-            // 
-            this.bTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bTarget.Location = new System.Drawing.Point(648, 221);
-            this.bTarget.Margin = new System.Windows.Forms.Padding(20);
-            this.bTarget.Name = "bTarget";
-            this.bTarget.Size = new System.Drawing.Size(107, 42);
-            this.bTarget.TabIndex = 5;
-            this.bTarget.Text = "Target";
-            this.bTarget.UseVisualStyleBackColor = true;
             // 
             // tbTarget
             // 
@@ -114,15 +94,61 @@
             this.tbCommand.Size = new System.Drawing.Size(726, 229);
             this.tbCommand.TabIndex = 7;
             // 
+            // bTarget
+            // 
+            this.bTarget.Hover = false;
+            this.bTarget.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.bTarget.Image = null;
+            this.bTarget.ImageLocation = new System.Drawing.Point(0, 0);
+            this.bTarget.ImageSize = new System.Drawing.Size(0, 0);
+            this.bTarget.Location = new System.Drawing.Point(648, 221);
+            this.bTarget.Name = "bTarget";
+            this.bTarget.Pressed = false;
+            this.bTarget.Radius = 8;
+            this.bTarget.Size = new System.Drawing.Size(107, 42);
+            stringFormat1.Alignment = System.Drawing.StringAlignment.Center;
+            stringFormat1.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat1.LineAlignment = System.Drawing.StringAlignment.Center;
+            stringFormat1.Trimming = System.Drawing.StringTrimming.Character;
+            this.bTarget.StringFormat = stringFormat1;
+            this.bTarget.TabIndex = 8;
+            this.bTarget.Text = "Target";
+            this.bTarget.TextGap = 0;
+            this.bTarget.TextLocation = new System.Drawing.Point(0, 0);
+            this.bTarget.UseVisualStyleBackColor = false;
+            // 
+            // bSource
+            // 
+            this.bSource.Hover = false;
+            this.bSource.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.bSource.Image = null;
+            this.bSource.ImageLocation = new System.Drawing.Point(0, 0);
+            this.bSource.ImageSize = new System.Drawing.Size(0, 0);
+            this.bSource.Location = new System.Drawing.Point(648, 139);
+            this.bSource.Name = "bSource";
+            this.bSource.Pressed = false;
+            this.bSource.Radius = 8;
+            this.bSource.Size = new System.Drawing.Size(107, 42);
+            stringFormat2.Alignment = System.Drawing.StringAlignment.Center;
+            stringFormat2.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat2.LineAlignment = System.Drawing.StringAlignment.Center;
+            stringFormat2.Trimming = System.Drawing.StringTrimming.Character;
+            this.bSource.StringFormat = stringFormat2;
+            this.bSource.TabIndex = 9;
+            this.bSource.Text = "Source";
+            this.bSource.TextGap = 0;
+            this.bSource.TextLocation = new System.Drawing.Point(0, 0);
+            this.bSource.UseVisualStyleBackColor = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.tbCommand);
-            this.Controls.Add(this.bTarget);
-            this.Controls.Add(this.tbTarget);
             this.Controls.Add(this.bSource);
+            this.Controls.Add(this.bTarget);
+            this.Controls.Add(this.tbCommand);
+            this.Controls.Add(this.tbTarget);
             this.Controls.Add(this.tbSource);
             this.Controls.Add(this.switchControl);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -137,10 +163,10 @@
         #endregion
         private Smartcodinghub.UserControls.SwitchControl switchControl;
         private System.Windows.Forms.TextBox tbSource;
-        private System.Windows.Forms.Button bSource;
-        private System.Windows.Forms.Button bTarget;
         private System.Windows.Forms.TextBox tbTarget;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox tbCommand;
+        private Smartcodinghub.CustomControls.FormTextIconButton bTarget;
+        private Smartcodinghub.CustomControls.FormTextIconButton bSource;
     }
 }

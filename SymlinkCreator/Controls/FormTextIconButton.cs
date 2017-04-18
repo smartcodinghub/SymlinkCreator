@@ -56,6 +56,9 @@ namespace Smartcodinghub.CustomControls
         public Point TextLocation { get { return textLocation; } set { textLocation = value; } }
         public Point ImageLocation { get; set; }
 
+        public Boolean UseGradient { get; set; }
+        public Color AltGradientColor { get; set; }
+
         private Size imageSize;
         public Size ImageSize
         {
@@ -72,7 +75,7 @@ namespace Smartcodinghub.CustomControls
             : base()
         {
             ForeColor = Color.White;
-            Font = new Font("Arial", 9.75f);
+            Font = new Font("Segoe UIO", 9.75f);
             BackColor = Color.FromArgb(50, 50, 50);
             HoverColor = Color.FromArgb(80, 80, 80);
             StringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
@@ -93,22 +96,9 @@ namespace Smartcodinghub.CustomControls
             rect.Width -= 1;
             rect.Height -= 1;
 
-            if (Pressed)
-            {
-                Color DarkerColor = ControlUtils.ChangeColorBrightness(HoverColor, -0.15f);
-                using (SolidBrush brush = new SolidBrush(DarkerColor))
-                    e.Graphics.FillRoundedRectangle(brush, rect, Radius);
-            }
-            else if (Hover)
-            {
-                using (SolidBrush brush = new SolidBrush(HoverColor))
-                    e.Graphics.FillRoundedRectangle(brush, rect, Radius);
-            }
-            else
-            {
-                using (SolidBrush brush = new SolidBrush(BackColor))
-                    e.Graphics.FillRoundedRectangle(brush, rect, Radius);
-            }
+
+            using (Brush brush = GetBrush())
+                e.Graphics.FillRoundedRectangle(brush, rect, Radius);
 
             if (Image != null)
             {
@@ -129,6 +119,52 @@ namespace Smartcodinghub.CustomControls
                 using (SolidBrush brush = new SolidBrush(ForeColor))
                     e.Graphics.DrawString(Text, Font, brush, rect, StringFormat);
             }
+        }
+
+        ///--------------------------------------------------------------------------------------------------
+        /// <summary> Paints the area. </summary>
+        /// <remarks> Oscvic, 2016-01-18. </remarks>
+        /// <param name="e">          Paint event information. </param>
+        /// <param name="filter">     Specifies the filter. </param>
+        /// <param name="StartColor"> The start color. </param>
+        /// <param name="EndColor">   The end color. </param>
+        /// <param name="invertDark"> true to invert dark. </param>
+        ///--------------------------------------------------------------------------------------------------
+        private Brush GetBrush()
+        {
+            Brush brush = null;
+
+            Color StartColor = BackColor;
+            Color EndColor = ForeColor;
+
+            if (Pressed)
+            {
+                Color DarkerColor = ControlUtils.ChangeColorBrightness(HoverColor, -0.15f);
+                brush = new SolidBrush(DarkerColor);
+            }
+            else if (Hover)
+            {
+                brush = new SolidBrush(HoverColor);
+            }
+            else
+            {
+                brush = new SolidBrush(BackColor);
+            }
+
+            return brush;
+
+            //StartColor = (invertDark) ? ControlPaint.Dark(StartColor, PercentageOfDark) : StartColor;
+            //EndColor = (invertDark) ? ControlPaint.Light(StartColor, PercentageOfLight) : ControlPaint.Dark(EndColor, PercentageOfDark);
+
+
+            //using (LinearGradientBrush brush = new LinearGradientBrush(
+            //    new Point(this.Width / 2, (invertDark) ? -(this.Height / 2) : 0),
+            //    new Point(this.Width / 2, this.Height + ((invertDark) ? 0 : this.Height / 2)),
+            //    StartColor, EndColor))
+            //    e.Graphics.FillRoundedRectangle(brush, 0, 0, this.Width - 1, this.Height, Radius, filter);
+
+            //using (Pen pen = new Pen((invertDark) ? StartColor : EndColor))
+            //    e.Graphics.DrawRoundedRectangle(pen, 0, 0, this.Width - 1, this.Height - 1, Radius, filter);
         }
     }
 }
