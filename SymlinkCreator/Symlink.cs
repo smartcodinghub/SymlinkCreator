@@ -24,9 +24,16 @@ namespace SymlinkCreator
             this.SymlinkOption = symlinkOption;
         }
 
+        public Boolean IsCompleted()
+        {
+            return SymlinkOption != null
+                && !String.IsNullOrWhiteSpace(Source)
+                && !String.IsNullOrWhiteSpace(Target);
+        }
+
         public String CreateSymlink()
         {
-            return $"mklink {this.SymlinkOption.Option} {this.Source} {this.Target}";
+            return $"mklink {this.SymlinkOption?.Option} \"{this.Source}\" \"{this.Target}\"";
         }
     }
 }

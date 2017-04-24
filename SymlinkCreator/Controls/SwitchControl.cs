@@ -63,7 +63,7 @@ namespace Smartcodinghub.UserControls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Object SelectedItem
         {
-            get { return selected.Value; }
+            get { return selected?.Value; }
             set
             {
                 this.Selected = flow.Controls.OfType<SwitchButton>().FirstOrDefault(sb => Object.Equals(sb.Value, value));

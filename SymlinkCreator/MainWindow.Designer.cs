@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Drawing.StringFormat stringFormat1 = new System.Drawing.StringFormat();
             System.Drawing.StringFormat stringFormat2 = new System.Drawing.StringFormat();
+            System.Drawing.StringFormat stringFormat3 = new System.Drawing.StringFormat();
             this.switchControl = new Smartcodinghub.UserControls.SwitchControl();
             this.tbSource = new System.Windows.Forms.TextBox();
             this.tbTarget = new System.Windows.Forms.TextBox();
@@ -38,6 +39,10 @@
             this.tbCommand = new System.Windows.Forms.TextBox();
             this.bTarget = new Smartcodinghub.CustomControls.FormTextIconButton();
             this.bSource = new Smartcodinghub.CustomControls.FormTextIconButton();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.s = new Smartcodinghub.CustomControls.FormTextIconButton();
             this.SuspendLayout();
             // 
             // switchControl
@@ -88,10 +93,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbCommand.Location = new System.Drawing.Point(29, 303);
-            this.tbCommand.Margin = new System.Windows.Forms.Padding(20);
+            this.tbCommand.Margin = new System.Windows.Forms.Padding(20, 20, 20, 10);
             this.tbCommand.Multiline = true;
             this.tbCommand.Name = "tbCommand";
-            this.tbCommand.Size = new System.Drawing.Size(726, 229);
+            this.tbCommand.Size = new System.Drawing.Size(726, 157);
             this.tbCommand.TabIndex = 7;
             // 
             // bTarget
@@ -122,6 +127,7 @@
             this.bTarget.TextLocation = new System.Drawing.Point(0, 0);
             this.bTarget.UseGradient = true;
             this.bTarget.UseVisualStyleBackColor = false;
+            this.bTarget.Click += new System.EventHandler(this.bTarget_Click);
             // 
             // bSource
             // 
@@ -151,12 +157,50 @@
             this.bSource.TextLocation = new System.Drawing.Point(0, 0);
             this.bSource.UseGradient = true;
             this.bSource.UseVisualStyleBackColor = false;
+            this.bSource.Click += new System.EventHandler(this.bSource_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "Source File";
+            this.openFileDialog.Title = "Source File Selector";
+            // 
+            // s
+            // 
+            this.s.AltGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.s.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.s.Hover = false;
+            this.s.Image = null;
+            this.s.ImageLocation = new System.Drawing.Point(0, 0);
+            this.s.ImageSize = new System.Drawing.Size(0, 0);
+            this.s.Location = new System.Drawing.Point(29, 490);
+            this.s.Margin = new System.Windows.Forms.Padding(20);
+            this.s.Name = "s";
+            this.s.PercentageForHover = 0.15F;
+            this.s.PercentageForPressed = 0.15F;
+            this.s.PercentageOfDark = 0.4F;
+            this.s.PercentageOfLight = 0.4F;
+            this.s.Pressed = false;
+            this.s.Radius = 8;
+            this.s.Size = new System.Drawing.Size(726, 42);
+            stringFormat3.Alignment = System.Drawing.StringAlignment.Center;
+            stringFormat3.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat3.LineAlignment = System.Drawing.StringAlignment.Center;
+            stringFormat3.Trimming = System.Drawing.StringTrimming.Character;
+            this.s.StringFormat = stringFormat3;
+            this.s.TabIndex = 10;
+            this.s.Text = "Link it!";
+            this.s.TextGap = 0;
+            this.s.TextLocation = new System.Drawing.Point(0, 0);
+            this.s.UseGradient = true;
+            this.s.UseVisualStyleBackColor = false;
+            this.s.Click += new System.EventHandler(this.s_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.s);
             this.Controls.Add(this.bSource);
             this.Controls.Add(this.bTarget);
             this.Controls.Add(this.tbCommand);
@@ -180,5 +224,9 @@
         private System.Windows.Forms.TextBox tbCommand;
         private Smartcodinghub.CustomControls.FormTextIconButton bTarget;
         private Smartcodinghub.CustomControls.FormTextIconButton bSource;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private Smartcodinghub.CustomControls.FormTextIconButton s;
     }
 }
