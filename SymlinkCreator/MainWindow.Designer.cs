@@ -42,7 +42,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.s = new Smartcodinghub.CustomControls.FormTextIconButton();
+            this.bLink = new Smartcodinghub.CustomControls.FormTextIconButton();
             this.SuspendLayout();
             // 
             // switchControl
@@ -164,43 +164,43 @@
             this.openFileDialog.FileName = "Source File";
             this.openFileDialog.Title = "Source File Selector";
             // 
-            // s
+            // bLink
             // 
-            this.s.AltGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.s.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.s.Hover = false;
-            this.s.Image = null;
-            this.s.ImageLocation = new System.Drawing.Point(0, 0);
-            this.s.ImageSize = new System.Drawing.Size(0, 0);
-            this.s.Location = new System.Drawing.Point(29, 490);
-            this.s.Margin = new System.Windows.Forms.Padding(20);
-            this.s.Name = "s";
-            this.s.PercentageForHover = 0.15F;
-            this.s.PercentageForPressed = 0.15F;
-            this.s.PercentageOfDark = 0.4F;
-            this.s.PercentageOfLight = 0.4F;
-            this.s.Pressed = false;
-            this.s.Radius = 8;
-            this.s.Size = new System.Drawing.Size(726, 42);
+            this.bLink.AltGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.bLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bLink.Hover = false;
+            this.bLink.Image = null;
+            this.bLink.ImageLocation = new System.Drawing.Point(0, 0);
+            this.bLink.ImageSize = new System.Drawing.Size(0, 0);
+            this.bLink.Location = new System.Drawing.Point(29, 490);
+            this.bLink.Margin = new System.Windows.Forms.Padding(20);
+            this.bLink.Name = "bLink";
+            this.bLink.PercentageForHover = 0.15F;
+            this.bLink.PercentageForPressed = 0.15F;
+            this.bLink.PercentageOfDark = 0.4F;
+            this.bLink.PercentageOfLight = 0.4F;
+            this.bLink.Pressed = false;
+            this.bLink.Radius = 8;
+            this.bLink.Size = new System.Drawing.Size(726, 42);
             stringFormat3.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat3.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
             stringFormat3.LineAlignment = System.Drawing.StringAlignment.Center;
             stringFormat3.Trimming = System.Drawing.StringTrimming.Character;
-            this.s.StringFormat = stringFormat3;
-            this.s.TabIndex = 10;
-            this.s.Text = "Link it!";
-            this.s.TextGap = 0;
-            this.s.TextLocation = new System.Drawing.Point(0, 0);
-            this.s.UseGradient = true;
-            this.s.UseVisualStyleBackColor = false;
-            this.s.Click += new System.EventHandler(this.s_Click);
+            this.bLink.StringFormat = stringFormat3;
+            this.bLink.TabIndex = 10;
+            this.bLink.Text = "Link it!";
+            this.bLink.TextGap = 0;
+            this.bLink.TextLocation = new System.Drawing.Point(0, 0);
+            this.bLink.UseGradient = true;
+            this.bLink.UseVisualStyleBackColor = false;
+            this.bLink.Click += new System.EventHandler(this.bLink_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.s);
+            this.Controls.Add(this.bLink);
             this.Controls.Add(this.bSource);
             this.Controls.Add(this.bTarget);
             this.Controls.Add(this.tbCommand);
@@ -227,6 +227,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private Smartcodinghub.CustomControls.FormTextIconButton s;
+        private Smartcodinghub.CustomControls.FormTextIconButton bLink;
     }
 }

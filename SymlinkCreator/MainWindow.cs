@@ -70,7 +70,7 @@ namespace SymlinkCreator
             tbCommand.Text = symlink.CreateSymlink();
         }
 
-        private void s_Click(object sender, EventArgs e)
+        private void bLink_Click(object sender, EventArgs e)
         {
             /* Check */
             SelectionCheck checkResult = Check();
@@ -86,9 +86,10 @@ namespace SymlinkCreator
         {
             SelectionCheck check = new SelectionCheck();
 
-            if (symlink.IsCompleted() || String.Equals(symlink.Source, symlink.Target))
+            if (!symlink.IsCompleted() || String.Equals(symlink.Source, symlink.Target))
                 return check;
 
+            check.IsSelectionReady = true;
             check.IsFile = SymlinkOption.FILE_SYMBOLIC == symlink.SymlinkOption || SymlinkOption.FILE_HARD == symlink.SymlinkOption;
 
             if (check.IsFile)
@@ -110,6 +111,7 @@ namespace SymlinkCreator
             if (!checkResult.IsSelectionReady)
                 return false;
 
+            /* Directory */
             if (!checkResult.IsFile)
             {
                 if (!checkResult.TargetExists)
@@ -138,6 +140,11 @@ namespace SymlinkCreator
             }
 
             return true;
+        }
+
+        private void Execute()
+        {
+            //throw new NotImplementedException();
         }
 
         private void Copy(Boolean isFile)
